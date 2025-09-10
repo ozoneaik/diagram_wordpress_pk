@@ -1,5 +1,10 @@
+import { Button } from "react-bootstrap";
+
+
 export default function WpDiagram() {
     return (
-        <>WpDiagram</>
+        <>
+            <Button onClick={()=>alert('hello')} variant="primary">Primary</Button>
+        </>
     )
 }
