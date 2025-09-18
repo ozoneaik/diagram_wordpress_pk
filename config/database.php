@@ -112,6 +112,20 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'diagram' => [
+            'driver' => 'mysql',
+            'host' => env('DIAGRAM_DB_HOST', 'localhost'),
+            'port' => env('DIAGRAM_DB_PORT', '3306'),
+            'database' => env('DIAGRAM_DB_DATABASE', 'diagram'),
+            'username' => env('DIAGRAM_DB_USERNAME', 'root'),
+            'password' => env('DIAGRAM_DB_PASSWORD', null),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
     ],
 
     /*
@@ -147,7 +161,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

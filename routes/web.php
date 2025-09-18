@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DiagramController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -24,8 +25,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/diagram', function(){
-    return Inertia::render('WordPress/WpDiagram');
-})->middleware('supportIframe');
 
-require __DIR__.'/auth.php';
+Route::middleware('supportIframe')->group(function () {
+    Route::get('/diagram', [DiagramController::class, 'index']);
+
+    Route::post('/search-diagram', [DiagramController::class, 'search'])->name('search-diagram');
+});
+
+require __DIR__ . '/auth.php';
