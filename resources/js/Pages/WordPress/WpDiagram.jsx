@@ -95,9 +95,9 @@ const DiagramSearch = () => {
     };
 
     return (
-        <Box p={2}>
+        <Box>
             {/* Search Container */}
-            <Card sx={{ p: 3, mb: 3, borderRadius: 3, boxShadow: 1 }}>
+            <Card sx={{mb: 3, borderRadius: 3, boxShadow: 1 }}>
                 <CardContent>
                     <Typography variant="h6" mb={2}>
                         ค้นหาไดอะแกรมสินค้า
@@ -109,6 +109,7 @@ const DiagramSearch = () => {
                         value={productOrModel}
                         onChange={(e) => setProductOrModel(e.target.value)}
                         sx={{ mb: 2 }}
+                        size="small"
                     />
 
                     <TextField
@@ -117,12 +118,13 @@ const DiagramSearch = () => {
                         value={serialNumber}
                         onChange={(e) => setSerialNumber(e.target.value)}
                         sx={{ mb: 2 }}
+                        size="small"
                     />
 
                     {dmTypes.length > 1 && (
                         <FormControl fullWidth sx={{ mb: 2 }}>
                             <InputLabel>เลือกประเภทไดอะแกรม</InputLabel>
-                            <Select value={selectedDmType} onChange={handleDmTypeChange}>
+                            <Select value={selectedDmType} onChange={handleDmTypeChange} size="small">
                                 {dmTypes.map((type) => (
                                     <MenuItem key={type.typedm} value={type.typedm}>
                                         {type.modelfg}
