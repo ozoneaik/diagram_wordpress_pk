@@ -42,6 +42,8 @@ const DiagramSearch = () => {
                 pid: productOrModel || null,
                 sn: serialNumber || null,
                 views: "single",
+            }, {
+                withCredentials: true
             });
 
             const result = response.data;
