@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('supportIframe')->group(function () {
     Route::get('/diagram', [DiagramController::class, 'index']);
 
-    Route::post('/search-diagram', [DiagramController::class, 'search'])->name('search-diagram');
+    Route::get('/search-diagram', [DiagramController::class, 'search'])->name('search-diagram');
 });
 
 require __DIR__ . '/auth.php';

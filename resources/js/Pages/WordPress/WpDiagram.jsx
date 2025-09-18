@@ -38,12 +38,13 @@ const DiagramSearch = () => {
         setPartsList([]);
         setImages([]);
         try {
-            const response = await axios.post(route("search-diagram"), {
-                pid: productOrModel || null,
-                sn: serialNumber || null,
-                views: "single",
-            }, {
-                withCredentials: true
+            const response = await axios.get(route("search-diagram"), {
+                params: {
+                    pid: productOrModel || null,
+                    sn: serialNumber || null,
+                    views: "single",
+                },
+                withCredentials: true, // ส่ง cookie ถ้าต้องการ session
             });
 
             const result = response.data;
