@@ -7,6 +7,12 @@ import {
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
 
+
+axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute("content");
+if (token) {
+    axios.defaults.headers.common["X-CSRF-TOKEN"] = token;
+}
 const DiagramSearch = () => {
     const [productOrModel, setProductOrModel] = useState("");
     const [serialNumber, setSerialNumber] = useState("");
